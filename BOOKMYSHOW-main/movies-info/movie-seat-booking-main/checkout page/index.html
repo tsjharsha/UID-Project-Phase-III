@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mazda CX-9 - Checkout</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <style>
+        .overlay {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .success-message {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            background-color: #f2f2f2;
+            padding: 20px;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .card-type img {
+            margin-right: 10px;
+        }
+    </style>
+    <script>
+        function processPayment() {
+            // Get input values
+            var cardNumber = document.querySelector('.card-number input').value;
+            var mmYy = document.querySelector('.mm-yy input').value;
+            var cvc = document.querySelector('.cvc input').value;
+            var ownerName = document.querySelector('.owner-name input').value;
+            var country = document.querySelector('.country-region select').value;
+            var zipCode = document.querySelector('.country-region input').value;
+
+            // Check if any of the fields are empty
+            if (cardNumber === "" || mmYy === "" || cvc === "" || ownerName === "" || country === "" || zipCode === "") {
+                alert("Please fill in all the fields.");
+                return;
+            }
+
+            // Hide the checkout form
+            document.querySelector('.checkout-text').style.display = "none";
+            // Show the success message overlay
+            document.querySelector('.overlay').style.display = "block";
+            // Show the success message
+            document.querySelector('.success-message').style.display = "block";
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="checkout-image">
+                <div class="info">
+                    <h1><b>U R SHOW</b></h1>
+                    <h4>KALKI 2898AD</h4>
+                    <h1>200.00₹</h1>
+                    <p></p>
+                    <img class="product-img" src="images/main.avif" height="500px" alt="Product-Image" />
+                </div>
+                <div class="footer">
+                    <select>
+                        <option selected>English</option>
+                        <option>HINDI</option>
+                        <option>TELUGU</option>
+                        <option>MALAYALAM</option>
+                    </select>
+                </div>
+            </div>
+            <div class="checkout-text">
+
+                <div class="card-details">
+                    <label>Card details</label>
+                    <div class="card-number">
+                        <input type="number" placeholder="4242 4242 4242 4242" />
+                        <div>
+                            <img src="https://img.icons8.com/color/48/000000/visa.png" height="20px" width="20px" />
+                            <img src="https://img.icons8.com/color/48/000000/mastercard.png" height="20px" width="20px" />
+                            <img src="https://img.icons8.com/color/48/000000/amex.png" height="20px" width="20px" />
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <div class="mm-yy">
+                            <input type="number" placeholder="MM / YY" />
+                        </div>
+                        <div class="cvc">
+                            <input type="number" placeholder="CVC" />
+                            <img src="https://img.icons8.com/ios/50/000000/card-verification-value.png" height="20px" width="20px" />
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="owner-name">
+                    <label>Owner name</label>
+                    <input type="text" placeholder="John Doe" />
+                </div>
+    
+                <div class="country-region">
+                    <label>Country or region</label>
+                    <select>
+                        <option>India</option>
+                        <option>America</option>
+                        <option>London</option>
+                    </select>
+                    <input type="number" placeholder="Zip code" />
+                </div>
+    
+                <button class="buy-button" onclick="processPayment()">Pay 200.00₹</button>
+    
+            </div>
+        </div>
+    </div>
+    <div class="overlay"></div>
+    <div class="success-message">
+        <h2>Thank You for Your Purchase!</h2>
+        <p>Your payment of 200.00₹ for the product "U R SHOW - KALKI 2898AD" has been successfully processed.</p>
+        <div class="card-type">
+            <img src="https://img.icons8.com/color/48/000000/visa.png" height="20px" width="20px" />
+            <img src="https://img.icons8.com/color/48/000000/mastercard.png" height="20px" width="20px" />
+            <img src="https://img.icons8.com/color/48/000000/amex.png" height="20px" width="20px" />
+        </div>
+        <p>An email with your order details will be sent to you shortly.</p>
+        <p>For any inquiries or assistance, please contact our customer support.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Movie Seat Booking</title>
+    <style>
+      /* Add some basic styling for the seat and its number */
+      .container {
+        margin: 20px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .row {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+      }
+      .seat {
+        background-color: #444451;
+        height: 30px;
+        width: 30px;
+        margin: 3px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 12px;
+        cursor: pointer;
+      }
+      .seat.selected {
+        background-color: #6feaf6;
+      }
+      .seat.sold {
+        background-color: #fff;
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+      .seat span {
+        display: block;
+        width: 100%;
+        text-align: center;
+      }
+      .screen {
+        background-color: #fff;
+        height: 70px;
+        width: 100%;
+        margin: 15px 0;
+        border-radius: 5px;
+      }
+      .btn-container {
+        margin-top: 20px;
+      }
+      .btn {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      .btn:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="movie-container">
+      <label> Select a movie:</label>
+      <select id="movie">
+        <option value="220">Kalki (RS.220)</option>
+        <option value="320">OG (RS.320)</option>
+        <option value="250">Manjummel Boys(RS.250)</option>
+        <option value="260">Aavesham(RS.260)</option>
+        <option value="260">Tillu Square(RS.260)</option>
+      </select>
+    </div>
+
+    <ul class="showcase">
+      <li>
+        <div class="seat"></div>
+        <small>Available</small>
+      </li>
+      <li>
+        <div class="seat selected"></div>
+        <small>Selected</small>
+      </li>
+      <li>
+        <div class="seat sold"></div>
+        <small>Sold</small>
+      </li>
+    </ul>
+    <div class="container">
+      <div class="screen"></div>
+
+      <div class="row">
+        <div class="seat"><span>1</span></div>
+        <div class="seat"><span>2</span></div>
+        <div class="seat"><span>3</span></div>
+        <div class="seat"><span>4</span></div>
+        <div class="seat"><span>5</span></div>
+        <div class="seat"><span>6</span></div>
+        <div class="seat"><span>7</span></div>
+        <div class="seat"><span>8</span></div>
+        <div class="seat"><span>9</span></div>
+        <div class="seat"><span>10</span></div>
+        <div class="seat"><span>11</span></div>
+        <div class="seat sold"><span>12</span></div>
+        <div class="seat sold"><span>13</span></div>
+        <div class="seat"><span>14</span></div>
+        <div class="seat"><span>15</span></div>
+        <div class="seat"><span>16</span></div>
+      </div>
+
+      <div class="row">
+        <div class="seat"><span>17</span></div>
+        <div class="seat"><span>18</span></div>
+        <div class="seat"><span>19</span></div>
+        <div class="seat"><span>20</span></div>
+        <div class="seat"><span>21</span></div>
+        <div class="seat"><span>22</span></div>
+        <div class="seat sold"><span>23</span></div>
+        <div class="seat sold"><span>24</span></div>
+        <div class="seat"><span>25</span></div>
+        <div class="seat"><span>26</span></div>
+        <div class="seat"><span>27</span></div>
+        <div class="seat"><span>28</span></div>
+        <div class="seat"><span>29</span></div>
+        <div class="seat"><span>30</span></div>
+        <div class="seat"><span>31</span></div>
+        <div class="seat"><span>32</span></div>
+      </div>
+
+      <div class="row">
+        <div class="seat"><span>33</span></div>
+        <div class="seat"><span>34</span></div>
+        <div class="seat"><span>35</span></div>
+        <div class="seat"><span>36</span></div>
+        <div class="seat"><span>37</span></div>
+        <div class="seat"><span>38</span></div>
+        <div class="seat"><span>39</span></div>
+        <div class="seat"><span>40</span></div>
+        <div class="seat"><span>41</span></div>
+        <div class="seat"><span>42</span></div>
+        <div class="seat"><span>43</span></div>
+        <div class="seat sold"><span>44</span></div>
+        <div class="seat sold"><span>45</span></div>
+        <div class="seat"><span>46</span></div>
+        <div class="seat"><span>47</span></div>
+        <div class="seat"><span>48</span></div>
+      </div>
+
+      <div class="row">
+        <div class="seat"><span>49</span></div>
+        <div class="seat"><span>50</span></div>
+        <div class="seat"><span>51</span></div>
+        <div class="seat"><span>52</span></div>
+        <div class="seat sold"><span>53</span></div>
+        <div class="seat sold"><span>54</span></div>
+        <div class="seat sold"><span>55</span></div>
+        <div class="seat"><span>56</span></div>
+        <div class="seat"><span>57</span></div>
+        <div class="seat"><span>58</span></div>
+        <div class="seat"><span>59</span></div>
+        <div class="seat"><span>60</span></div>
+        <div class="seat"><span>61</span></div>
+        <div class="seat"><span>62</span></div>
+        <div class="seat"><span>63</span></div>
+        <div class="seat"><span>64</span></div>
+      </div>
+
+      
+      
+
+    </div>
+
+    <p class="text">
+      You have selected <span id="count">0</span> seat(s) for a price of RS.<span id="total">0</span>
+    </p>
+
+    <div class="btn-container">
+      <a href="checkout page/index.html"><button class="btn" id="payment">Proceed to Payment</button></a>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
